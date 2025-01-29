@@ -1,10 +1,10 @@
 # fib.py
 import time
-import functools
+from functools import lru_cache
 import matplotlib as plt
 
 
-@lru.cache
+@lru_cache
 @timer
 def fib(n: int) -> int:
     if n == 0:
