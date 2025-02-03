@@ -3,15 +3,17 @@ import time
 from functools import lru_cache
 import matplotlib.pyplot as plt
 
+fibTimes = []
+
 
 def timer(func):
     def wrapper(*args, **kwargs):
-        startTime = time.time()
+        startTime = time.perf_counter()
         result = func(*args, **kwargs)
-        endTime = time.time()
-        print(
-            f"Finished in {endTime - startTime}s: {func.__name__}({args[0]}) = {result}"
-        )
+        endTime = time.perf_counter()
+        timePassed = endTime - startTime
+        fibTimes.append(timePassed)
+        print(f"Finished in {timePassed:.8f}s: {func.__name__}({args[0]}) -> {result}")
         return result
 
     return wrapper
@@ -27,16 +29,13 @@ def fib(n: int) -> int:
     return fib(n - 1) + fib(n - 2)
 
 
-def fibTime(n: int) -> float:
-    startTime = time.time()
-    fib(n)
-    endTime = time.time()
-    return endTime - startTime
-
-
 def plot_fib(n: int) -> None:
-    x = list(range(n))
-    y = [fibTime(i) for i in x]
+    plt.grid(axis="y", linestyle="-")
+    plt.xticks([i for i in range(0, n + 1, 10)])
+    plt.xlim(0, n)
+    plt.ylim(0, max(fibTimes))
+    x = list(range(n + 1))
+    y = fibTimes
     plt.plot(x, y)
     plt.show()
 
