@@ -29,7 +29,7 @@ def fib(n: int) -> int:
     return fib(n - 1) + fib(n - 2)
 
 
-def plot_fib(n: int) -> None:
+def plotFib(n: int) -> None:
     plt.grid(axis="y", linestyle="-")
     plt.xticks([i for i in range(0, n + 1, 10)])
     plt.xlim(0, n)
@@ -42,4 +42,4 @@ def plot_fib(n: int) -> None:
 
 if __name__ == "__main__":
     fib(100)
-    plot_fib(100)
+    plotFib(100)
