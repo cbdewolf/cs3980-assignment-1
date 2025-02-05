@@ -1,6 +1,8 @@
 # cs3980-assignment-1
 The first assignment for CS:3980 contains two parts: a simple python scipt imitading that of an echo from a mountain, and an implementation of the fibonacci sequence to highlight the use of decorators in Python.
 
+To run each python file respectively, type "python <em>FILENAME</em>.py" into the VSCode terminal.
+
 <ins> **echo.py** </ins> 
 
 In echo.py, you will find a method named echo(), which takes a user inputted string, as well as a fixed number of repititions. The echo() method takes the text and repeats it the specified number of times, and imitates that of an echo effect in real life.
